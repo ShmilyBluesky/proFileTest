@@ -1,3 +1,9 @@
 pro工程管理文件语法帮助可查找“qmake”关键字，例如：查询CONFIG配置。
 
 代码使用的全局宏定义可查看“QtGlobal”关键字，例如：查询平台相关的宏定义。
+
+通过定义不同的宏来实现自适应多平台编译和运行（qmake->Additional arguments）
+DEFINES+=PLATFORM_ARM_ZLG
+DEFINES+=PLATFORM_ARM_TOPEET
+DEFINES+=PLATFORM_WIN_MINGW
+DEFINES+=PLATFORM_WIN_VS

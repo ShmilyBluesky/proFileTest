@@ -12,6 +12,7 @@ MainWidget::MainWidget(QWidget *parent) :
     func_platform();
     func_debug_or_release();
     func_bits();
+    test_define();
 }
 
 MainWidget::~MainWidget()
@@ -76,5 +77,35 @@ void MainWidget::func_bits()
 
 #ifdef __i386__
     qDebug() << "func_bits: 32.";
+#endif
+}
+
+void MainWidget::test_define()
+{
+#ifdef PLATFORM_ARM_ZLG
+    qDebug() << "global define: " << "PLATFORM_ARM_ZLG";
+#endif
+#ifdef PLATFORM_ARM_TOPEET
+    qDebug() << "global define: " << "PLATFORM_ARM_TOPEET";
+#endif
+#ifdef PLATFORM_WIN_MINGW
+    qDebug() << "global define: " << "PLATFORM_WIN_MINGW";
+#endif
+#ifdef PLATFORM_WIN_VS
+    qDebug() << "global define: " << "PLATFORM_WIN_VS";
+#endif
+
+
+#ifdef GLOBALDEFINE_PLATFORM_ARM_ZLG
+    qDebug() << "global define: " << "GLOBALDEFINE_PLATFORM_ARM_ZLG";
+#endif
+#ifdef GLOBALDEFINE_PLATFORM_ARM_TOPEET
+    qDebug() << "global define: " << "GLOBALDEFINE_PLATFORM_ARM_TOPEET";
+#endif
+#ifdef GLOBALDEFINE_PLATFORM_WIN_MINGW
+    qDebug() << "global define: " << "GLOBALDEFINE_PLATFORM_WIN_MINGW";
+#endif
+#ifdef GLOBALDEFINE_PLATFORM_WIN_VS
+    qDebug() << "global define: " << "GLOBALDEFINE_PLATFORM_WIN_VS";
 #endif
 }
