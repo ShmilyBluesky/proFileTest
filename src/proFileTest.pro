@@ -81,6 +81,36 @@ message("64-bit")
 }
 
 
+if (contains(QMAKESPEC, /usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++)){
+message(QMAKESPEC [$$QMAKESPEC] is right[1]!)
+}
+else:contains(QMAKESPEC, /opt/poky/1.7/sysroots/x86_64-pokysdk-linux/mkspecs/linux-oe-g++) {
+message(QMAKESPEC [$$QMAKESPEC] is right[2]!)
+}
+else:contains(QMAKESPEC, /usr/share/qt4/mkspecs/linux-g++-64) {
+message(QMAKESPEC [$$QMAKESPEC] is right[3]!)
+}
+else:contains(QMAKESPEC, /opt/qt5.6.2-arm/mkspecs/devices/linux-imx6-g++) {
+message(QMAKESPEC [$$QMAKESPEC] is right[4]!)
+}
+else:contains(QMAKESPEC, C:/Qt/Qt5.12.4/5.12.4/msvc2017/mkspecs/win32-msvc) {
+message(QMAKESPEC [$$QMAKESPEC] is right[5]!)
+}
+else:contains(QMAKESPEC, C:/Qt/Qt5.12.4/5.12.4/msvc2017_64/mkspecs/win32-msvc) {
+message(QMAKESPEC [$$QMAKESPEC] is right[6]!)
+}
+else:contains(QMAKESPEC, C:/Qt/Qt5.12.4/5.12.4/mingw73_32/mkspecs/win32-g++) {
+message(QMAKESPEC [$$QMAKESPEC] is right[7]!)
+}
+else:contains(QMAKESPEC, C:/Qt/Qt5.12.4/5.12.4/mingw73_64/mkspecs/win32-g++) {
+message(QMAKESPEC [$$QMAKESPEC] is right[8]!)
+}
+else {
+message(QMAKESPEC is: $$QMAKESPEC)
+error(Please set QMAKESPEC firstly! Position: $$PWD/proFileTest.pro)
+}
+
+
 SOURCES += \
         main.cpp \
         mainwidget.cpp
